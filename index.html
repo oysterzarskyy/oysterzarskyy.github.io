@@ -3,204 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MePhone4 & Toilet Portal</title>
+    <title>MePhone4 & Toilet - Python 2013 Portal</title>
     
-    <!-- Bootstrap 5 Core CSS -->
+    <!-- Bootstrap 5 included purely for basic underlying layout structure -->
     <link href="https://jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-    <!-- Fonts: Tech-style for MePhone, Fun style for text -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Orbitron:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Mono&display=swap" rel="stylesheet">
-    
-    <!-- PyScript Core -->
+    <!-- PyScript Core Core Framework -->
     <link rel="stylesheet" href="https://pyscript.net" />
     <script type="module" src="https://pyscript.net"></script>
 
     <style>
+        /* 2013-Era Python Documentation Style Variables */
         :root {
-            /* MePhone4 Palette: Premium, sleek, corporate technology tones */
-            --mephone-navy: #0b2545;
-            --mephone-screen: #134074;
-            --mephone-silver: #cbd5e1;
-            
-            /* Toilet Palette: Loud, chaotic, bright water tones */
-            --toilet-aqua: #00f5d4;
-            --toilet-blue: #00bbf9;
-            --toilet-yellow: #fee440;
-            --toilet-pink: #f15bb5;
+            --py-2013-blue: #1e3d59;
+            --py-2013-header-bg: #112535;
+            --py-2013-yellow: #ffda54;
+            --py-2013-light-blue: #306998;
+            --py-2013-bg: #f2f2f2;
+            --py-2013-code-bg: #fdfdfd;
+            --py-2013-border: #cccccc;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(180deg, var(--mephone-navy) 0%, #020813 100%);
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--py-2013-bg);
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* 2013 Header Scheme */
+        .py-header-2013 {
+            background-color: var(--py-2013-header-bg);
+            border-bottom: 4px solid var(--py-2013-light-blue);
             color: #ffffff;
-            min-height: 100vh;
+            padding: 10px 20px;
         }
 
-        /* Phone Screen Casing Container */
-        .phone-bezel {
-            border: 12px solid var(--mephone-silver);
-            border-radius: 40px;
-            background-color: var(--mephone-screen);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-            overflow: hidden;
-            position: relative;
+        .py-logo-text {
+            font-weight: bold;
+            font-size: 22px;
+            color: #ffffff;
+        }
+        .py-logo-text span.yellow-snake { color: var(--py-2013-yellow); }
+        .py-logo-text span.blue-snake { color: #4b8bbe; }
+
+        /* 2013 Documentation Style Container Box */
+        .doc-body-card {
+            background-color: #ffffff;
+            border: 1px solid var(--py-2013-border);
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
-        /* Speaker grill at top of phone */
-        .phone-speaker {
-            width: 60px;
-            height: 6px;
-            background-color: var(--mephone-silver);
-            border-radius: 3px;
-            margin: 15px auto 5px auto;
+        .doc-section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2b5b84;
+            border-bottom: 1px solid var(--py-2013-border);
+            padding-bottom: 4px;
+            margin-bottom: 12px;
         }
 
-        .system-title {
-            font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
-            color: var(--toilet-aqua);
-            text-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+        /* 2013 Interactive Sphinx-Style Code Layout Block */
+        .python-code-2013 {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--py-2013-code-bg);
+            border: 1px solid #acbac9;
+            border-left: 4px solid #306998;
+            padding: 10px;
+            color: #333333;
+            font-size: 13px;
+            white-space: pre-wrap;
         }
 
-        /* Chaotic Toilet Accent Card */
-        .toilet-card {
-            background-color: rgba(0, 187, 249, 0.15);
-            border: 3px dashed var(--toilet-aqua);
-            border-radius: 20px;
-            transition: transform 0.2s;
-        }
-        
-        .toilet-card:hover {
-            transform: scale(1.02) rotate(1deg);
+        .python-prompt {
+            color: #006600;
+            font-weight: bold;
         }
 
-        /* Loud Toilet Buttons */
-        .btn-toilet {
-            background-color: var(--toilet-pink);
-            color: white;
-            font-weight: 800;
-            border: 2px solid white;
-            border-radius: 30px;
-            box-shadow: 0 4px 0 white;
-            transition: all 0.1s;
+        /* ----------------------------------------------------
+           ULTRA-RETRO 2005 GLOSSY GRADIENT BUTTON DEFINITION
+           ---------------------------------------------------- */
+        .btn-retro-2005 {
+            display: inline-block;
+            padding: 8px 24px;
+            font-family: "Lucida Grande", Tahoma, Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            color: #ffffff !important;
+            text-shadow: 0px -1px 1px #000000, 0px 1px 1px rgba(255,255,255,0.3);
+            
+            /* High-contrast gel/glass gradient from 2005 web 2.0 design trend */
+            background: #ff1493; /* fallback */
+            background: linear-gradient(180deg, 
+                #ff69b4 0%, 
+                #ff1493 49%, 
+                #ed008c 50%, 
+                #b00066 100%);
+            
+            /* Rigid 3D structural bevel borders */
+            border-top: 1px solid #ffb6c1;
+            border-right: 2px solid #5e0037;
+            border-bottom: 3px solid #4a002b;
+            border-left: 2px solid #ff69b4;
+            border-radius: 8px;
+            
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.3), inset 0px 1px 0px rgba(255,255,255,0.5);
         }
 
-        .btn-toilet:active {
-            transform: translateY(4px);
-            box-shadow: 0 0px 0 white;
+        .btn-retro-2005:hover {
+            background: linear-gradient(180deg, 
+                #ff82c2 0%, 
+                #ff2a9d 49%, 
+                #fa169f 50%, 
+                #c70074 100%);
+            transform: translateY(-1px);
         }
 
-        /* Terminal Outputs */
-        .app-terminal {
-            font-family: 'Fira Mono', monospace;
-            background-color: #020813;
-            color: var(--toilet-yellow);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            font-size: 0.9rem;
+        .btn-retro-2005:active {
+            border-top: 3px solid #4a002b;
+            border-bottom: 1px solid #ffb6c1;
+            background: linear-gradient(180deg, #b00066 0%, #ed008c 100%);
+            box-shadow: inset 0px 3px 5px rgba(0,0,0,0.5);
+            transform: translateY(2px);
+        }
+
+        .system-badge {
+            background-color: #e4e4e4;
+            border: 1px solid var(--py-2013-border);
+            color: #333333;
+            font-size: 12px;
+            padding: 3px 8px;
+            font-family: monospace;
         }
     </style>
 </head>
 <body>
 
-    <div class="container my-5" style="max-width: 650px;">
+    <!-- 2013 Documentation Top Blue Navbar Header -->
+    <header class="py-header-2013 shadow-sm mb-4">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="py-logo-text">
+                <span class="blue-snake">py</span><span class="yellow-snake">thon</span>-m4os-docs
+            </div>
+            <div class="system-badge">
+                User profile index: <strong>oysterzarskyy</strong>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Documentation Column Grid Layout -->
+    <main class="container" style="max-width: 850px;">
         
-        <!-- MePhone Device Enclosure -->
-        <div class="phone-bezel p-3 pb-5">
-            <div class="phone-speaker"></div>
+        <!-- Section A: Standard Workspace Overview Documentation Box -->
+        <div class="doc-body-card">
+            <h2 class="doc-section-title">MePhone4 Execution Portal :: Introduction</h2>
+            <p>Welcome back, <strong>oysterzarskyy</strong>. This section outlines the environment parameters. The page serves as a generic text integration framework compiling embedded script blocks inside client-side execution boundaries.</p>
+            <p class="text-muted small">Documentation generated: March 2013 | Compatible with Python 2.7 & 3.3 runtime builds.</p>
+        </div>
+
+        <!-- Section B: Toilet's Chaos Module Box -->
+        <div class="doc-body-card" style="border-top: 3px solid #ff1493;">
+            <h2 class="doc-section-title" style="color: #b00066;">🚽 TOILET'S PLUG-IN PANEL (v2005_BETA)</h2>
+            <p>MISTAH PHONE!!! I hacked my own Web 2.0 glass design assets straight into your documentation layout sheets! Look at this clicker gradient box thingy!!</p>
             
-            <!-- Top Status Information Bar -->
-            <div class="d-flex justify-content-between align-items-center px-3 my-3 small text-white-50 font-monospace">
-                <span>M4-OS v4.0</span>
-                <span>BATTERY: 100%</span>
-            </div>
-
-            <hr class="border-secondary opacity-25 m-0 mb-4">
-
-            <!-- Welcome Branding Interface -->
-            <div class="text-center px-3 mb-4">
-                <h1 class="display-6 system-title mb-2">MEPHONE 4</h1>
-                <p class="text-white-50">User Session Authorization Protocol</p>
-            </div>
-
-            <!-- Main Intro Jumbotron Box -->
-            <div class="bg-dark bg-opacity-50 p-4 rounded-4 border border-secondary border-opacity-25 mb-4">
-                <h3 class="fw-bold mb-2">Hello, oysterzarskyy!</h3>
-                <p class="text-light opacity-75 mb-0">Welcome to your dashboard. This clean personal profile module utilizes instant execution scripts managed simultaneously by Python and JavaScript subsystems.</p>
-            </div>
-
-            <!-- Toilet's Fanboy Intervention Card -->
-            <div class="toilet-card p-4 mb-4 text-center">
-                <h4 class="h5 fw-bold text-white mb-2" style="letter-spacing: 0.5px;">
-                    🚽 TOILET'S ASSISTANT TERMINAL!
-                </h4>
-                <p class="small text-white-50 mb-3">MISTAH PHONE! LOOK! I added my own custom processing buttons right into your JavaScript memory array layers!</p>
-                
-                <button class="btn btn-toilet px-4 py-2 w-100 uppercase" onclick="fireToiletLogic()">
-                    MISTAH PHONE! CLICK HERE!!!
+            <!-- 2005-style shiny 3D glossy button element placement -->
+            <div class="my-4 text-center">
+                <button class="btn-retro-2005" onclick="fireToiletLogic()">
+                    MISTAH PHONE! CLICK TO REFRESH INTRO DATA!!
                 </button>
             </div>
-
-            <!-- Output Grid Split Framework -->
-            <div class="row g-3">
-                <!-- MePhone4 Processing Core Output -->
-                <div class="col-12">
-                    <div class="app-terminal p-3 shadow-inner">
-                        <span class="text-white-50 d-block border-bottom border-secondary border-opacity-25 pb-1 mb-2 font-monospace small">MePhone4 Core System Engine:</span>
-                        <div id="py-device-log">Compiling Python WebAssembly kernels...</div>
-                    </div>
-                </div>
-
-                <!-- Toilet Response Output -->
-                <div class="col-12">
-                    <div class="app-terminal p-3 shadow-inner" style="color: var(--toilet-aqua);">
-                        <span class="text-white-50 d-block border-bottom border-secondary border-opacity-25 pb-1 mb-2 font-monospace small">Toilet Dynamic Catch String:</span>
-                        <div id="js-device-log">Awaiting input stream activation signal...</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Subtle Home Indicator Button at Bottom of Bezel Casing -->
-            <div class="mt-4 text-center">
-                <div class="bg-white bg-opacity-25 mx-auto rounded-pill" style="width: 40px; height: 4px;"></div>
-            </div>
-            
         </div>
-    </div>
 
-    <!-- JAVASCRIPT SCOPE CONTROLS -->
+        <!-- Section C: Terminal Output Interactive Displays -->
+        <div class="doc-body-card">
+            <h2 class="doc-section-title">Interpreter Memory Registers</h2>
+            
+            <div class="mb-4">
+                <label class="fw-bold d-block text-secondary small mb-1">>>> MePhone4 Subsystem Stream Output:</label>
+                <div id="py-device-log" class="python-code-2013">
+<span class="python-prompt">>>></span> Loading Python WebAssembly interpreter blocks...
+                </div>
+            </div>
+
+            <div>
+                <label class="fw-bold d-block text-secondary small mb-1">>>> Toilet Shared Buffer Intercept:</label>
+                <div id="js-device-log" class="python-code-2013" style="border-left-color: #ff1493;">
+<span class="python-prompt">>>></span> print("Waiting for physical hardware pulse stream request...")
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JAVASCRIPT HYBRID INTERACTION ENGINE -->
     <script>
-        // Setup base application user values into global window memory frames
         window.activeProfile = "oysterzarskyy";
 
         function fireToiletLogic() {
             if (window.toiletGeneratedResponse) {
-                document.getElementById('js-device-log').innerText = window.toiletGeneratedResponse;
+                document.getElementById('js-device-log').innerHTML = '<span class="python-prompt">>>></span> ' + window.toiletGeneratedResponse;
             } else {
-                document.getElementById('js-device-log').innerText = "IT'S NOT READY YET MISTAH PHONE!!!";
+                document.getElementById('js-device-log').innerHTML = '<span class="python-prompt">>>></span> print("SYSTEM INITIALIZING. PLEASE RETRY BUTTON INTERACTION.")';
             }
         }
     </script>
 
-    <!-- PYTHON SCOPE CONTROLS -->
+    <!-- PYTHON WEBASSEMBLY RUNTIME PROCESSOR -->
     <script type="py">
         from pyscript import window
 
-        # Safely capture global identifiers defined within JavaScript
         user = window.activeProfile
         
-        # Format the strict, professional tech-style output string for MePhone4
+        # Build classic 2013 technical REPL style text outputs 
         mephone_diagnostic = (
-            f"SYSTEM: Greeting initialized for user sequence '{user}'.\n"
-            f"STATUS: Core application running within standard operating matrix.\n"
-            f"LOG: Hybrid background communication pipeline online."
+            f">>> import m4os\n"
+            f">>> m4os.init_session('{user}')\n"
+            f"Status: 200 OK\n"
+            f"Environment Context: Profile Landing Page Module Loaded."
         )
         window.document.getElementById("py-device-log").innerText = mephone_diagnostic
 
-        # Format and push out the energetic Toilet string response into JavaScript
-        toilet_shout = f"OOH! OOH! HELLO {user.upper()}!!! I SNEAKED THIS STRING INTO JAVASCRIPT RAW MEMORY FOR YOU!!! IT IS WORKING PERFECTLY!!!"
+        # Build loud capitalization Toilet output strings for JS parsing
+        toilet_shout = f'print("YAAAAAY!!! HELLO {user.upper()}!!! LOOK AT MY INJECTED SHINY GRADIENT LOGIC BOX GO!!!")'
         window.toiletGeneratedResponse = toilet_shout
     </script>
 
