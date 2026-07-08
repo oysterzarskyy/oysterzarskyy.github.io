@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome oysterzarskyy | PyPI Dashboard</title>
+    <title>MePhone4 & Toilet Portal</title>
     
-    <!-- Google Fonts for PyPI aesthetic -->
+    <!-- Bootstrap 5 Core CSS -->
+    <link href="https://jsdelivr.net" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Fonts: Tech-style for MePhone, Fun style for text -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com/css2?family=Orbitron:wght@700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Fira+Mono&display=swap" rel="stylesheet">
     
     <!-- PyScript Core -->
     <link rel="stylesheet" href="https://pyscript.net" />
@@ -16,229 +19,189 @@
 
     <style>
         :root {
-            --pypi-blue: #003049;
-            --pypi-dark-blue: #001e3d;
-            --pypi-gold: #ffcd38;
-            --pypi-light-grey: #f4f5f7;
-            --pypi-border: #dcdcdc;
-            --pypi-text: #333333;
+            /* MePhone4 Palette: Premium, sleek, corporate technology tones */
+            --mephone-navy: #0b2545;
+            --mephone-screen: #134074;
+            --mephone-silver: #cbd5e1;
+            
+            /* Toilet Palette: Loud, chaotic, bright water tones */
+            --toilet-aqua: #00f5d4;
+            --toilet-blue: #00bbf9;
+            --toilet-yellow: #fee440;
+            --toilet-pink: #f15bb5;
         }
 
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #fafafa;
-            color: var(--pypi-text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(180deg, var(--mephone-navy) 0%, #020813 100%);
+            color: #ffffff;
+            min-height: 100vh;
         }
 
-        /* PyPI Top Navigation Header */
-        .pypi-header {
-            background-color: var(--pypi-blue);
-            color: white;
-            padding: 15px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 5px solid var(--pypi-gold);
+        /* Phone Screen Casing Container */
+        .phone-bezel {
+            border: 12px solid var(--mephone-silver);
+            border-radius: 40px;
+            background-color: var(--mephone-screen);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+            position: relative;
         }
 
-        .header-left {
-            display: flex;
-            align-items: center;
+        /* Speaker grill at top of phone */
+        .phone-speaker {
+            width: 60px;
+            height: 6px;
+            background-color: var(--mephone-silver);
+            border-radius: 3px;
+            margin: 15px auto 5px auto;
         }
 
-        .pypi-logo-box {
-            background-color: var(--pypi-gold);
-            color: var(--pypi-blue);
-            font-weight: 700;
-            padding: 5px 12px;
-            border-radius: 4px;
-            margin-right: 15px;
-            font-size: 1.4rem;
-            letter-spacing: -0.5px;
+        .system-title {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            color: var(--toilet-aqua);
+            text-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
         }
 
-        .pypi-title h1 {
-            margin: 0;
-            font-size: 1.3rem;
-            font-weight: 400;
-        }
-
-        .user-badge {
-            font-family: 'Fira Mono', monospace;
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 6px 12px;
+        /* Chaotic Toilet Accent Card */
+        .toilet-card {
+            background-color: rgba(0, 187, 249, 0.15);
+            border: 3px dashed var(--toilet-aqua);
             border-radius: 20px;
-            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+        
+        .toilet-card:hover {
+            transform: scale(1.02) rotate(1deg);
         }
 
-        /* Container Layout */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        /* Welcome Banner Card */
-        .welcome-card {
-            background: linear-gradient(135deg, var(--pypi-blue) 0%, var(--pypi-dark-blue) 100%);
+        /* Loud Toilet Buttons */
+        .btn-toilet {
+            background-color: var(--toilet-pink);
             color: white;
-            padding: 40px;
-            border-radius: 6px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            font-weight: 800;
+            border: 2px solid white;
+            border-radius: 30px;
+            box-shadow: 0 4px 0 white;
+            transition: all 0.1s;
         }
 
-        .welcome-card h2 {
-            margin: 0 0 10px 0;
-            font-size: 2.2rem;
-            font-weight: 600;
+        .btn-toilet:active {
+            transform: translateY(4px);
+            box-shadow: 0 0px 0 white;
         }
 
-        .welcome-card p {
-            margin: 0;
-            opacity: 0.9;
-            font-size: 1.1rem;
-        }
-
-        /* Standard Content Card */
-        .card {
-            border: 1px solid var(--pypi-border);
-            border-radius: 6px;
-            margin-bottom: 25px;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-        }
-
-        .card-header {
-            background-color: var(--pypi-light-grey);
-            padding: 12px 20px;
-            border-bottom: 1px solid var(--pypi-border);
-            font-weight: 600;
-            font-size: 1.05rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            color: #555;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        /* Output Box Styling */
-        .output-box {
+        /* Terminal Outputs */
+        .app-terminal {
             font-family: 'Fira Mono', monospace;
-            background-color: #2b2b2b;
-            color: #a9b7c6;
-            padding: 15px;
-            border-radius: 4px;
-            margin-top: 10px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        .pypi-btn {
-            background-color: var(--pypi-blue);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-
-        .pypi-btn:hover {
-            background-color: var(--pypi-dark-blue);
+            background-color: #020813;
+            color: var(--toilet-yellow);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Styled Header Section -->
-    <header class="pypi-header">
-        <div class="header-left">
-            <div class="pypi-logo-box">pypi</div>
-            <div class="pypi-title">
-                <h1>Package Index Environment</h1>
+    <div class="container my-5" style="max-width: 650px;">
+        
+        <!-- MePhone Device Enclosure -->
+        <div class="phone-bezel p-3 pb-5">
+            <div class="phone-speaker"></div>
+            
+            <!-- Top Status Information Bar -->
+            <div class="d-flex justify-content-between align-items-center px-3 my-3 small text-white-50 font-monospace">
+                <span>M4-OS v4.0</span>
+                <span>BATTERY: 100%</span>
             </div>
-        </div>
-        <div class="user-badge">logged_in: oysterzarskyy</div>
-    </header>
 
-    <div class="container">
-        
-        <!-- Welcome Hero Banner -->
-        <div class="welcome-card">
-            <h2>Welcome back, oysterzarskyy!</h2>
-            <p>Your Python and JavaScript hybrid workspace is configured and ready.</p>
-        </div>
-        
-        <!-- Module 1: Python Engine Diagnostics -->
-        <div class="card">
-            <div class="card-header">System Initialization Diagnostic</div>
-            <div class="card-body">
-                <p>Python compiled down via WebAssembly generated this environment log footprint:</p>
-                <div id="py-welcome-terminal" class="output-box">Booting WebAssembly core...</div>
-            </div>
-        </div>
-        
-        <!-- Module 2: Interactive Token Validation -->
-        <div class="card">
-            <div class="card-header">Session Token Registry</div>
-            <div class="card-body">
-                <p>Request an encrypted environment authorization token built natively by Python context variables.</p>
-                <button class="pypi-btn" onclick="fetchSessionToken()">Generate Security Token</button>
-                <div id="js-token-display" class="output-box">No token requested.</div>
-            </div>
-        </div>
+            <hr class="border-secondary opacity-25 m-0 mb-4">
 
+            <!-- Welcome Branding Interface -->
+            <div class="text-center px-3 mb-4">
+                <h1 class="display-6 system-title mb-2">MEPHONE 4</h1>
+                <p class="text-white-50">User Session Authorization Protocol</p>
+            </div>
+
+            <!-- Main Intro Jumbotron Box -->
+            <div class="bg-dark bg-opacity-50 p-4 rounded-4 border border-secondary border-opacity-25 mb-4">
+                <h3 class="fw-bold mb-2">Hello, oysterzarskyy!</h3>
+                <p class="text-light opacity-75 mb-0">Welcome to your dashboard. This clean personal profile module utilizes instant execution scripts managed simultaneously by Python and JavaScript subsystems.</p>
+            </div>
+
+            <!-- Toilet's Fanboy Intervention Card -->
+            <div class="toilet-card p-4 mb-4 text-center">
+                <h4 class="h5 fw-bold text-white mb-2" style="letter-spacing: 0.5px;">
+                    🚽 TOILET'S ASSISTANT TERMINAL!
+                </h4>
+                <p class="small text-white-50 mb-3">MISTAH PHONE! LOOK! I added my own custom processing buttons right into your JavaScript memory array layers!</p>
+                
+                <button class="btn btn-toilet px-4 py-2 w-100 uppercase" onclick="fireToiletLogic()">
+                    MISTAH PHONE! CLICK HERE!!!
+                </button>
+            </div>
+
+            <!-- Output Grid Split Framework -->
+            <div class="row g-3">
+                <!-- MePhone4 Processing Core Output -->
+                <div class="col-12">
+                    <div class="app-terminal p-3 shadow-inner">
+                        <span class="text-white-50 d-block border-bottom border-secondary border-opacity-25 pb-1 mb-2 font-monospace small">MePhone4 Core System Engine:</span>
+                        <div id="py-device-log">Compiling Python WebAssembly kernels...</div>
+                    </div>
+                </div>
+
+                <!-- Toilet Response Output -->
+                <div class="col-12">
+                    <div class="app-terminal p-3 shadow-inner" style="color: var(--toilet-aqua);">
+                        <span class="text-white-50 d-block border-bottom border-secondary border-opacity-25 pb-1 mb-2 font-monospace small">Toilet Dynamic Catch String:</span>
+                        <div id="js-device-log">Awaiting input stream activation signal...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Subtle Home Indicator Button at Bottom of Bezel Casing -->
+            <div class="mt-4 text-center">
+                <div class="bg-white bg-opacity-25 mx-auto rounded-pill" style="width: 40px; height: 4px;"></div>
+            </div>
+            
+        </div>
     </div>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JAVASCRIPT SCOPE CONTROLS -->
     <script>
-        // Pass configuration explicitly down to the window memory stack
-        window.githubUser = "oysterzarskyy";
+        // Setup base application user values into global window memory frames
+        window.activeProfile = "oysterzarskyy";
 
-        function fetchSessionToken() {
-            if (window.generatedPyToken) {
-                document.getElementById('js-token-display').innerText = window.generatedPyToken;
+        function fireToiletLogic() {
+            if (window.toiletGeneratedResponse) {
+                document.getElementById('js-device-log').innerText = window.toiletGeneratedResponse;
             } else {
-                document.getElementById('js-token-display').innerText = "System loading. Wait a second and try again.";
+                document.getElementById('js-device-log').innerText = "IT'S NOT READY YET MISTAH PHONE!!!";
             }
         }
     </script>
 
-    <!-- PYTHON LOGIC -->
+    <!-- PYTHON SCOPE CONTROLS -->
     <script type="py">
         from pyscript import window
-        import sys
-        import hashlib
-        import datetime
 
-        # Pull the global context name defined in JavaScript window object
-        user = window.githubUser
+        # Safely capture global identifiers defined within JavaScript
+        user = window.activeProfile
         
-        # Build a pseudo package installation layout block
-        terminal_output = (
-            f"$ pip install user-{user}\n"
-            f"Looking in indexes: https://pypi.org\n"
-            f"Collecting user-{user}==2026.7.8\n"
-            f"Installing collected packages: {user}\n"
-            f"Successfully verified user initialization context via PyScript engine."
+        # Format the strict, professional tech-style output string for MePhone4
+        mephone_diagnostic = (
+            f"SYSTEM: Greeting initialized for user sequence '{user}'.\n"
+            f"STATUS: Core application running within standard operating matrix.\n"
+            f"LOG: Hybrid background communication pipeline online."
         )
-        
-        # Update the UI layout
-        window.document.getElementById("py-welcome-terminal").innerText = terminal_output
+        window.document.getElementById("py-device-log").innerText = mephone_diagnostic
 
-        # Generate a distinct hash value token to pull from JavaScript later
-        raw_token = f"{user}-{datetime.date.today()}-session-key"
-        hashed_token = hashlib.sha256(raw_token.encode()).hexdigest()[:24]
-        
-        # Export token out back to JavaScript global state
-        window.generatedPyToken = f"AUTH_TOKEN_HASH: pypi_{hashed_token}"
+        # Format and push out the energetic Toilet string response into JavaScript
+        toilet_shout = f"OOH! OOH! HELLO {user.upper()}!!! I SNEAKED THIS STRING INTO JAVASCRIPT RAW MEMORY FOR YOU!!! IT IS WORKING PERFECTLY!!!"
+        window.toiletGeneratedResponse = toilet_shout
     </script>
 
 </body>
