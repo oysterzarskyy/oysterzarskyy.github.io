@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome oysterzarskyy | PyPI Dashboard</title>
+    
+    <!-- Google Fonts for PyPI aesthetic -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- PyScript Core -->
+    <link rel="stylesheet" href="https://pyscript.net" />
+    <script type="module" src="https://pyscript.net"></script>
+
+    <style>
+        :root {
+            --pypi-blue: #003049;
+            --pypi-dark-blue: #001e3d;
+            --pypi-gold: #ffcd38;
+            --pypi-light-grey: #f4f5f7;
+            --pypi-border: #dcdcdc;
+            --pypi-text: #333333;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+            color: var(--pypi-text);
+        }
+
+        /* PyPI Top Navigation Header */
+        .pypi-header {
+            background-color: var(--pypi-blue);
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 5px solid var(--pypi-gold);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .pypi-logo-box {
+            background-color: var(--pypi-gold);
+            color: var(--pypi-blue);
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-right: 15px;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .pypi-title h1 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 400;
+        }
+
+        .user-badge {
+            font-family: 'Fira Mono', monospace;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Welcome Banner Card */
+        .welcome-card {
+            background: linear-gradient(135deg, var(--pypi-blue) 0%, var(--pypi-dark-blue) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .welcome-card h2 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+
+        .welcome-card p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        /* Standard Content Card */
+        .card {
+            border: 1px solid var(--pypi-border);
+            border-radius: 6px;
+            margin-bottom: 25px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .card-header {
+            background-color: var(--pypi-light-grey);
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--pypi-border);
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #555;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Output Box Styling */
+        .output-box {
+            font-family: 'Fira Mono', monospace;
+            background-color: #2b2b2b;
+            color: #a9b7c6;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .pypi-btn {
+            background-color: var(--pypi-blue);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .pypi-btn:hover {
+            background-color: var(--pypi-dark-blue);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Styled Header Section -->
+    <header class="pypi-header">
+        <div class="header-left">
+            <div class="pypi-logo-box">pypi</div>
+            <div class="pypi-title">
+                <h1>Package Index Environment</h1>
+            </div>
+        </div>
+        <div class="user-badge">logged_in: oysterzarskyy</div>
+    </header>
+
+    <div class="container">
+        
+        <!-- Welcome Hero Banner -->
+        <div class="welcome-card">
+            <h2>Welcome back, oysterzarskyy!</h2>
+            <p>Your Python and JavaScript hybrid workspace is configured and ready.</p>
+        </div>
+        
+        <!-- Module 1: Python Engine Diagnostics -->
+        <div class="card">
+            <div class="card-header">System Initialization Diagnostic</div>
+            <div class="card-body">
+                <p>Python compiled down via WebAssembly generated this environment log footprint:</p>
+                <div id="py-welcome-terminal" class="output-box">Booting WebAssembly core...</div>
+            </div>
+        </div>
+        
+        <!-- Module 2: Interactive Token Validation -->
+        <div class="card">
+            <div class="card-header">Session Token Registry</div>
+            <div class="card-body">
+                <p>Request an encrypted environment authorization token built natively by Python context variables.</p>
+                <button class="pypi-btn" onclick="fetchSessionToken()">Generate Security Token</button>
+                <div id="js-token-display" class="output-box">No token requested.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Pass configuration explicitly down to the window memory stack
+        window.githubUser = "oysterzarskyy";
+
+        function fetchSessionToken() {
+            if (window.generatedPyToken) {
+                document.getElementById('js-token-display').innerText = window.generatedPyToken;
+            } else {
+                document.getElementById('js-token-display').innerText = "System loading. Wait a second and try again.";
+            }
+        }
+    </script>
+
+    <!-- PYTHON LOGIC -->
+    <script type="py">
+        from pyscript import window
+        import sys
+        import hashlib
+        import datetime
+
+        # Pull the global context name defined in JavaScript window object
+        user = window.githubUser
+        
+        # Build a pseudo package installation layout block
+        terminal_output = (
+            f"$ pip install user-{user}\n"
+            f"Looking in indexes: https://pypi.org\n"
+            f"Collecting user-{user}==2026.7.8\n"
+            f"Installing collected packages: {user}\n"
+            f"Successfully verified user initialization context via PyScript engine."
+        )
+        
+        # Update the UI layout
+        window.document.getElementById("py-welcome-terminal").innerText = terminal_output
+
+        # Generate a distinct hash value token to pull from JavaScript later
+        raw_token = f"{user}-{datetime.date.today()}-session-key"
+        hashed_token = hashlib.sha256(raw_token.encode()).hexdigest()[:24]
+        
+        # Export token out back to JavaScript global state
+        window.generatedPyToken = f"AUTH_TOKEN_HASH: pypi_{hashed_token}"
+    </script>
+
+</body>
+</html>
